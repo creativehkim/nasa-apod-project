@@ -4,14 +4,15 @@ html {
 
 body {
   margin: 0;
-  background: whitesmoke;
+  background: #252525;
   overflow-x: hidden;
-  font-family: Verdana, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1rem;
-  line-height: 1.8rem;
+  line-height: 1.5rem;
 }
 
 .container {
+  color: white;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -22,48 +23,78 @@ body {
 
 /* Loader */
 .loader {
-  background-color: whitesmoke;
+  background-color: #252525;
   height: 100vh;
   width: 100vw;
+  position: fixed;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 /* Navigation */
-.navigation-container {
+.nav-container {
   position: fixed;
   top: 0;
 }
 
-.navigation-items {
+.nav-items {
   display: flex;
   justify-content: center;
+  padding: 1em;
 }
 
 .background {
-  background: whitesmoke;
+  background: #252525;
   position: fixed;
   right: 0;
   width: 100%;
-  height: 60px;
+  height: 80px;
+  z-index: -1;
+}
+
+.clickable {
+  color: #b64255;
+  cursor: pointer;
+  user-select: none;
+}
+
+.clickable:hover {
+  color: #e0abc0;
 }
 
 /* Images Container */
 .images-container {
-  margin-top: 50px;
+  width: 800px;
+  margin-top: 80px;
 }
 
 .card {
   background: white;
+  color: black;
   margin: 10px 10px 20px;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
   transition: 0.3s;
+  overflow: hidden;
+}
+
+.card .clickable {
+  color: #b64255;
+}
+
+.card .clickable:hover {
+  color: #3a0d1e;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
 }
 
 .card-body {
@@ -80,7 +111,7 @@ body {
   background: white;
   padding: 8px 16px;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
   transition: 0.3s;
   position: fixed;
   bottom: 25px;
@@ -95,8 +126,18 @@ body {
 /* Large Smartphone (Vertical) */
 @media screen and (max-width: 800px) {
   body {
-    line-height: 1.4rem;
+    line-height: 1.3rem;
     font-size: 0.9rem;
+    text-align: justify;
+  }
+
+  .images-container {
+    width: 100%;
+  }
+
+  .save-confirmed {
+    right: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
 
   .card-title {

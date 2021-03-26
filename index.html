@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NASA API Pictures</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="https://s2.googleusercontent.com/s2/favicons?domain=www.nasa.gov">
 
@@ -13,9 +15,55 @@
 <body>
     <!-- Loader -->
     <div class="loader hidden">
-        <img src="rocket.svg" alt="rocket loading animation">
+        <img src="/imgs/rocket.svg" alt="rocket loading animation">
     </div>
+    <!-- Container -->
+    <div class="container">
+        <!-- Navigation -->
+        <div class="nav-container">
+            <span class="background"></span>
+            <!-- Results Nav-->
+            <span class="nav-items" id="resultsNav">
+                <h3 class="clickable">Favorites</h3>
+                <h3>&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</h3>
+                <h3 class="clickable">Load More</h3>
+            </span>
+            <!-- Favorites Nav -->
+            <span class="nav-items hidden" id="favoritesNav">
+                <h3 class="clickable">Load More NASA Images</h3>
+            </span>
+        </div>
+        <!-- Images Container -->
+        <div class="images-container">
 
+            <div class="card">
+                <a href="" title="View Full Image" target="_blank">
+                    <img src="https://apod.nasa.gov/apod/image/2103/Abell21-Drudis.jpg" alt="NASA Pictures of the Day"
+                        class="card-img-top">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Title of Image</h5>
+                    <p class="clickable">Add to Favorites</p>
+                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis maiores,
+                        sequi tempora eveniet quia ipsum saepe natus earum at odio beatae sunt, illo error repellat.
+                        Quisquam odio ratione a perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quis debitis nisi possimus repellat incidunt nihil, ea, obcaecati laboriosam harum eos nobis
+                        officiis aliquam magnam vero quod inventore vitae! Explicabo, repellat.
+
+                    </p>
+                    <small class="text-muted">
+                        <strong>12-12-2020</strong>
+                        <span>Copyright Info</span>
+                    </small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Save Confirmation -->
+    <div class="save-confirmed" hidden>
+        <h1>Added!</h1>
+    </div>
 
 
     <!-- Script -->
