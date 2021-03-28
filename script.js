@@ -11,6 +11,7 @@ const apiKey = 'DEMO_KEY';
 const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${count}`;
 
 let resultsArray = [];
+let favorites = {};
 
 // Update DOM
 
@@ -32,7 +33,7 @@ function updateDOM() {
     image.src = result.url;
     image.alt = 'NASA Picture of the Day';
     image.loading = 'lazy';
-    iamge.classList.add('card-img-top');
+    image.classList.add('card-img-top');
 
     // Card Body
     const cardBody = document.createElement('div');
@@ -45,6 +46,8 @@ function updateDOM() {
     const saveText = document.createElement('p');
     saveText.classList.add('clickable');
     saveText.textContent = 'Add To Favorites';
+    // Save Favorite function
+    saveText.setAttribute('onclick',`saveFavorite('${result.url}')`);
     // Card Text
     const cardText = document.createElement('p');
     cardText.textContent = result.explanation;
@@ -64,9 +67,12 @@ function updateDOM() {
     link.appendChild(image);
     card.append(link, cardBody);
     imagesContainer.appendChild(card);
-    debugger;
+
   });
 }
+
+
+
 
 // Get 10 Images from NASA API
 
@@ -80,6 +86,24 @@ async function getNasaPictures() {
     // Catch error here
     console.log('error');
   }
+}
+
+// Add result to Favorites
+function saveFavorite(itemUrl) {
+  // Loop through Results Array to select Favorite
+  resultsArray.forEach((item) => {
+    if (item.url.includes(itemUrl) && !favorites[itemUrl]) {
+      favorites[itemUrl] = item;
+      console.log(JSON.stringify(favorites));
+      // Show Save confirmation for 2 seconds
+      saveConfirmed.hidden = false; 
+      setTimeout(() => {
+        saveConfirmed.hidden = true;
+      }, 2000);
+      // Set Favorites in localStorage
+      localStorage.setItem('nasaFavorites', JSON.stringify(favorites));
+    }
+  })
 }
 
 // On Load
